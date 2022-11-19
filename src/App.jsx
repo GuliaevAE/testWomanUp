@@ -26,9 +26,11 @@ function App() {
     mes.forEach((doc) => {
       let objID = { docId: doc.id }
       let subObj = {}
-      if((doc.data().date<new Date().toString())&& doc.data().status){
+      if((doc.data().date< new Date().toString())){
+        console.log('sdf')
         subObj.status = true
       }
+      console.log(subObj)
       subArr.push(Object.assign(objID, doc.data(), subObj))
     })
     setCount(subArr)

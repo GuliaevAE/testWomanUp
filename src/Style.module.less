@@ -1,0 +1,242 @@
+.text{
+    color:black
+}
+
+.todoItem{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+    padding-right: 30px;
+    margin: 10px;
+    background: rgb(53, 50, 50);
+    border-radius: 15px;
+    position: relative;
+    width: 60vw;
+    text-align:left;
+    span{
+        color:aliceblue;
+        font-size: 20px;
+    }
+
+    input[type='checkbox']{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input[type="checkbox"]:after {
+        content: "";
+        position: absolute;
+        display: none;
+      } 
+      
+      
+    .description{
+        font-size: 14px;
+    }
+    .link{
+        color:green;
+        font-size: 14px;
+        cursor:pointer;
+        &:hover{
+            color:red
+        }
+    }
+}
+
+.blockForCheckbox{
+    position: relative;
+    input[type='checkbox']{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input[type="checkbox"]:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }     
+}
+
+.checkMark {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 5px;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 15px;
+    opacity: .8;
+    transition: all .3s;
+    &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        left: 6px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+  &:hover{
+    opacity: 1;
+  }
+
+}
+.actived{
+   background-color: rgb(16, 193, 43);
+   
+}
+
+.deleteMark{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 30px;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 0, 0);
+    border:1px solid white;
+    border-radius: 15px;
+    opacity: .8;
+    transition: all .3s;
+    &::after{
+        content: '\2716';
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        
+    }
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.header{
+    position: relative;
+    box-shadow: 0 2px 0 0 white;
+    padding: 20px 10px;
+    
+    z-index: 3;
+    span{
+        font-size: 3.2em;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+}
+
+.inputAndButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 10px;
+    max-width: 700px;
+    
+    
+    input[type='text']{
+        width: 75%;
+        padding: 10px;
+        border-radius: 15px 0 0 15px;
+        border: none;
+        padding-right: 30px;
+    }
+    input[type='button']{
+        width: 25%;
+        min-width: 65px;
+        border-radius: 0 15px 15px 0;
+        font-size: 35px;
+        font-weight: 700;
+        border: none;
+        padding-right: 20px;
+        padding-left: 0;
+    }
+    input[type='file']{
+        display: none;
+    }
+    label{
+        cursor: pointer;
+       
+        
+            width: 25%;
+        min-width: 65px;
+        border-radius: 0 15px 15px 0;
+        font-size: 15px;
+        font-weight: 700;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        
+        background:grey
+    }
+    input[type='datetime-local']{
+        width: 100%;
+        padding: 10px;
+        border-radius: 15px ;
+        border: none;
+      
+    }
+
+}
+
+.list{
+    box-shadow: 0 2px 0 0 white,0 -2px 0 0 white ;
+    display: flex;
+    flex-direction: column;
+    // max-height:55vh;
+    justify-content: center;
+    align-items:center;
+    height: auto;
+    overflow-y: auto;
+   
+}
+
+.eye {
+    display: inline-block;
+    position: relative;
+    width: 13px; /* ширина элемента */ 
+    height: 13px; /* высота элемента */ 
+    background: currentColor; /* цвет иконки как цвет текста */ 
+    border-radius: 70% 0 / 70%;
+    transform: rotate(45deg);
+    &::before,
+    &::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: rgb(0, 0, 0);
+    border-radius: 100%;
+  }
+  &:hover::before,
+  &::after{
+    background: green;
+  }
+   &::after {
+    width: 30%;
+    height: 30%;
+    top: 35%;
+    left: 35%;
+    background: inherit; /* цвет зрачка как у родителя */ 
+  }
+  }
+  

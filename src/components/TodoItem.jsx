@@ -7,30 +7,15 @@ export default function TodoItem(props){
     const [isHover, setHover] = useState(false)
     const [isOpen, setOpen] = useState(false)
     const { firestore } = useContext(Context)
-    console.log(props.date, props.date>new Date().toString())
-    // async function getMesForGuest() {
-    //     let subArr = []
-    //     let mes = await getDocs(collection(firestore, 'Todos'))
-    
-    //     mes.forEach((doc) => {
-    //       let objID = { docId: doc.id }
-    //       console.log(doc.id)
-    //       subArr.push(Object.assign(objID, doc.data()))
-    //     })
-    //     await setCount(subArr)
-    //     await console.log(subArr)
-    //   }
-  
+ 
     return (
         <div  onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} className={styles.todoItem}>
             <span>{props.text} {(props.file||props.description||props.date) &&<span onClick={()=>setOpen(!isOpen)} className={styles.eye}></span>}</span>
             <span onClick={()=>props.updateTodo(props.id, !props.status)} className={ [styles.checkMark,  props.status && styles.actived].join(' ')}></span>
-            
             {isHover&&<span onClick={()=>{props.deleteTodo(props.id, props.uniqId+'/'+ props.file)}} className={ styles.deleteMark}></span>}
             <input type="checkbox" checked={props.status} />
             {isOpen&&props.description&&<span className={styles.description}>{props.description}</span>}
             {isOpen&&props.date&&<span className={styles.description}>{props.date }</span>}
-      
             {isOpen&&props.file&&<span className={styles.link} onClick={()=>props.downloadFile(props.uniqId+'/'+ props.file)}>{props.file}</span>}
           </div>
     )

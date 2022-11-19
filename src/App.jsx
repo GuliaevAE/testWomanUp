@@ -20,18 +20,11 @@ function App() {
     getMesForGuest()
   }, []);
 
-
-  console.log(new Date())
-
-
-
   async function getMesForGuest() {
     let subArr = []
     let mes = await getDocs(collection(firestore, 'Todos'))
     mes.forEach((doc) => {
       let objID = { docId: doc.id }
-      console.log(doc.data)
-
       let subObj = {}
       if(doc.data().date<new Date().toString()&& doc.data().status){
         subObj.status = true
@@ -106,9 +99,6 @@ function App() {
       })
 
   }
-
-  // console.log(new Date( e.target.value)>new Date())
-
 
   function sendFile(uniqID) {
     const storage = getStorage();

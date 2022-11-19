@@ -47,7 +47,10 @@ function App() {
 
       });
       console.log("Document written with ID: ", docRef.id);
-      await sendFile(uniqID)
+      if(fileValue){
+        sendFile(uniqID)
+      }
+      
       await getMesForGuest()
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -60,9 +63,12 @@ function App() {
     const desertRef = ref(storage, filename);
     try {
       await deleteDoc(doc(firestore, "Todos", id));
-      deleteObject(desertRef).then(() => {
-      }).catch((error) => {
-      });
+      if(filename){
+        deleteObject(desertRef).then(() => {
+        }).catch((error) => {
+        });
+      }
+     
       await getMesForGuest()
     } catch (e) {
       console.error("Error adding document: ", e);

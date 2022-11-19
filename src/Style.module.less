@@ -27,13 +27,12 @@
         cursor: pointer;
         height: 0;
         width: 0;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+          } 
     }
-
-    input[type="checkbox"]:after {
-        content: "";
-        position: absolute;
-        display: none;
-      } 
       
       
     .description{
@@ -57,13 +56,15 @@
         cursor: pointer;
         height: 0;
         width: 0;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+          }     
     }
 
-    input[type="checkbox"]:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }     
+    
 }
 
 .checkMark {
@@ -199,6 +200,8 @@
         padding: 10px;
         border-radius: 15px ;
         border: none;
+        background:rgb(69, 68, 68);
+        color:white
       
     }
 

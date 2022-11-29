@@ -142,7 +142,7 @@ function App() {
 
         </div>
         <div style={{ display: 'flex' }}>
-          <input step="1" type="datetime-local" onChange={(e) => setDate(new Date(e.target.value))} />
+          <input step="1" type="datetime-local" min={new Date().toLocaleString()} onChange={(e) => setDate(new Date(e.target.value))} />
   
 
         </div>
